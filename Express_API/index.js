@@ -56,11 +56,62 @@ function createPost(req, res) {
     }
 }
 
+function deletePost(req, res) {
+  try {
+    const postId = req.params.postId;
+    const postArr = jsonPosts.posts;
+    const postIndex = postArr[i].id == postId;
+
+    if (postIndex !== -1) {
+      postArr.splice(postIndex, 1);
+      res.status(200).json({
+        message: 'Post deleted successfully'
+      });
+    } else {
+      res.status(404).json({
+        message: 'Post not found'
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      message: 'Internal server error'
+    });
+  }
+}
+
+function updatePost(req, res) {
+  try {
+    const postId = req.params.postId
+    const { title, content } = req.body
+    const postArr = jsonPosts.posts
+    const post = postArr[i].id == postId;
+
+    if (post) {
+      if (title) post.title = title
+      if (content) post.content = content
+      res.status(200).json({
+        message: 'Post updated successfully',
+        post
+      })
+    } else {
+      res.status(404).json({
+        message: 'Post not found'
+      })
+    }
+  } catch (err) {
+    res.status(500).json({
+      message: 'Internal server error'
+    })
+  }
+}
+
 // get request
 app.use(express.json())
 app.get('/posts', getAllPostsHandler)
 app.get('/posts/:postId', getPostById)
 app.get('/posts', createPost)
+app.get('/posts', updatePost)
+app.get('/posts/postId' , deletePost)
 
 
 // server start
