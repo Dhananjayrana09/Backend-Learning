@@ -109,9 +109,9 @@ function updatePost(req, res) {
 app.use(express.json())
 app.get('/posts', getAllPostsHandler)
 app.get('/posts/:postId', getPostById)
-app.get('/posts', createPost)
-app.get('/posts', updatePost)
-app.get('/posts/postId' , deletePost)
+app.post('/posts', createPost)
+app.patch('/posts', updatePost)
+app.delete('/posts/:postId' , deletePost)
 
 
 // server start
