@@ -1,17 +1,19 @@
 {
-  "name": "lecture_4_crud_in_mongodb",
+  "name": "lecture_6_auth_mvc",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "api.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon db.js"
+    "start": "nodemon api.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.1"
   },
   "devDependencies": {

@@ -60,7 +60,7 @@ userSchema.post('save', function () {
 })
 
 // final touch point
-const UserModel = mongoose.model('User', userSchema)
+const userModel = mongoose.model('User', userSchema)
 
 // default export
-module.exports = UserModel
+module.exports = userModel
